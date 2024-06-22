@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouFood</title>
+    <style>
+        .hero { /* definir o estilo do cabeçalho*/
+    color: white; /* cor branca para o texto*/
+    text-align: center; /* alinhar o texto no centro*/
+    font-family: Arial, Helvetica, sans-serif; /* fonte arial*/
+    height: 500px; /* definir a altura para 500 pixels*/
+    width: 100%; /* definir a largura para 100% (cobrir tudo)*/
+    padding-top: 0px; /* sem espaçamento para cima */
+    background: url(bg.png); /* definir o fundo da div para o bg.png*/
+    position: absolute; /* posição absoluta */
+    background-attachment: fixed; /* definir o fundo para fixo, para ficar correto*/
+    background-position:top; /* dar enfase no topo da imagem, onde tem o conteúdo de interesse*/
+}
+
+a:hover {
+    color: rgb(154, 150, 150); /* ao passar o mouse nos links, a cor muda*/
+}
+
+a {/* links*/
+    color: white; /* definir os links para branco por padrão*/
+}
+
+body { /* estilo geral da página*/
+    background-color: black; /* o fundo da página é preto */
+    color: white; /* cor dos textos branco*/
+}
+
+button { /* estilo padrão dos botões*/
+    background-color: black; /* botão com fundo preto*/
+    border-radius: 20px; /* arredondar as bordas, para ficar mais bonito*/
+    color: white; /* cor do texto do botão branco*/
+}
+
+.textos {
+    padding-top: 170px; /* deixar o texto no meio do cabeçalho*/
+}
+
+.features { 
+    padding-top: 500px; /* dar um espaçamento maneiro entre o cabeçalho e a div features*/
+    background-color: black; /* fundo da div*/
+    width: 100%;/* uma largura total*/
+    height: 500px; /* uma altura boa para caber tudo -_- */
+
+}
+
+.sobreNos {
+    text-align: center; /* alinhamento dos textos no centro */
+    padding-top: 20px; /* um espaçamento bão*/
+    background-color: black; /* definir o fundo para preto */
+    color: white; /* textos brancos */
+    font-family: Arial, Helvetica, sans-serif; /* fonte arial, bem normal*/
+}
+
+.footer {
+    padding-top: 140px; /* um espaçamento para o rodapé*/
+    text-align: center; /* novamente, um alinhamento no centro para os textos*/
+    color: white /* definir a cor dos textos para branco */
+}
+    </style>
+    <script>
+        function viewCat() { //função chamada qnd o botão for clicado
+            window.location.href = "cat.html" //redirecionar para o catálago
+        }
+    </script>
+</head>
+<body>
+<p style="text-align: center;font-family: Arial, Helvetica, sans-serif;">Homepage - <a href="cat.html">Catálago</a> - <a href="cart.html">Carrinho</a> - <a href="account.html">Conta</a></p>
+    <div class="hero">
+        <div class="textos">
+<h1>YouFood</h1> 
+<h4>Compre fácil, rápido e em uma plataforma confiável.</h4>
+<button onclick="viewCat()">Ver catálago</button>
+</div>
+    </div>
+
+    <div class="features">
+<p style="text-align: center;"><img src="features.png" width="500" alt=""></p> 
+    </div>
+    <div></div>
+    <div id="sobreNos" class="sobreNos">
+        <p>A YouFood é uma plataforma (marketplace) de lanches fundada em 2024, com sede em Cubatão, visando ser uma solução segura, acessível, e rápida.
+
+        </p>
+    </div>
+    <div class="footer" id="footer">
+<p>Todos direitos reservados, YouFood.</p>
+    </div>
+</body>
+</html>
