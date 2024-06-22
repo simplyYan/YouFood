@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho</title>
+    <style>
+        body { /* bóde */
+            font-family: Arial, Helvetica, sans-serif; /* fonte arial*/
+            background-color: #f4f4f4; /* cor de fundo da 'bóde' branca*/
+            margin: 0; /* margem 0*/
+            padding: 20px; /* espaçamento (preenchimento) de 20px*/
+            display: flex;  /* display flex de novo*/
+            justify-content: center; /* centralizar*/
+            align-items: center; /* centralizar também :)*/
+            height: 100vh; /* altura*/
+        }
+        form { /* todos formulários, mas só tem 1 nessa página*/
+            background-color: white; /* fundo do formulário*/
+            padding: 20px; /* espaçamento de 20px*/
+            border-radius: 8px; /* arredondar*/
+            width: 100%; /* largura total*/
+            max-width: 400px;
+        }
+        input[type="text"], /* selecionar os inputs do tipo texto e telefone*/
+        input[type="tel"] {
+            width: 100%; /* largura*/
+            padding: 10px; /* preenchimento*/
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            width: 100%;
+        }
+        button:hover { /* estilo usado quando o cursor é passado no botão*/
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <form action="">
+        <fieldset>
+            <legend>Comprar</legend>
+            <label for="nome">Nome</label>
+            <input type="text" placeholder="Digite seu nome aqui" name="nome" id="nome">
+            <label for="endereco">Endereço</label>
+            <input type="text" placeholder="Digite seu endereço" name="endereco" id="endereco">
+            <label for="telefone">Telefone</label>
+            <input type="text" placeholder="Digite seu endereço" name="telefone" id="telefone">
+            <label for="telefone">CPF</label>
+            <input type="tel" placeholder="Digite seu CPF" name="cpf" id="cpf">
+            <label for="salvarDados">Deseja salvar seus dados para próxima vez?</label>
+            <input type="checkbox" name="salvarDados" id="salvarDados" onchange="setSaving()">
+            <button type="submit">Finalizar</button>
+        </fieldset>
+    </form>
+
+    <script>
+        if (localStorage.getItem("nome") != null) { /* 
+            verificar se o nome existe, se sim, quer dizer que os outros tbm, e 
+            consequentemente, foi definido para salvar os dados
+            */
+           //procurar elementos pelo id
+            var campo_nome = document.getElementById("nome")
+            var campo_endereco = document.getElementById("endereco")
+            var campo_telefone = document.getElementById("telefone")
+            var campo_cpf = document.getElementById("cpf")
+            //definir valores com base nos valores salvos
+            campo_nome.value = localStorage.getItem("nome")
+            campo_endereco.value = localStorage.getItem("endereco")
+            campo_telefone.value = localStorage.getItem("telefone")
+            campo_cpf.value = localStorage.getItem("cpf")
+            //definir a checkbox ativa
+            var salvadordedados = document.getElementById("salvarDados")
+            salvadordedados.checked = true
+        }
+        function setSaving() {
+            //obter a checkbox
+            var salvarOuNao = document.getElementById("salvarDados").value 
+            if (salvarOuNao == "on") { //se o usuário quer salvar, então salva né
+                //obter valores
+                var nome = document.getElementById("nome").value 
+                var endereco = document.getElementById("endereco").value
+                var telefone = document.getElementById("telefone").value
+                var cpf = document.getElementById("cpf").value
+                //salvar na máquina do usuário para reutilizar no próximo acesso
+                localStorage.setItem("nome", nome)
+                localStorage.setItem("endereco", endereco)
+                localStorage.setItem("telefone", telefone)
+                localStorage.setItem("cpf", cpf)
+            } 
+            
+        }
+    </script>
+</body>
+</html>
